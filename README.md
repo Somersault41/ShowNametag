@@ -53,4 +53,4 @@ The script builds each loader project and merges them into one jar, which it wri
 
 ## License
 
-MIT, by Somersault41
+MIT, by Somersault41. See [LICENSE](LICENSE).
