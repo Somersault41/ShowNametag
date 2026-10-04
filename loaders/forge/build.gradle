@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+    id 'net.minecraftforge.gradle' version '[7.0.17,8)'
+}
+
+version = '1.0.0'
+group = 'com.shownametag'
+base.archivesName = 'shownametag-forge'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+minecraft {
+    runs {
+        configureEach {
+            workingDir = layout.projectDirectory.dir('run')
+            // Mixin icin config komut satirindan da verilir
+            args "--mixin.config=${mod_id}.mixins.json"
+        }
+        register('client')
+    }
+}
+
+repositories {
+    minecraft.mavenizer(it)
+    maven fg.forgeMaven
+    maven fg.minecraftLibsMaven
+    mavenCentral()
+}
+
+dependencies {
+    implementation minecraft.dependency("net.minecraftforge:forge:$minecraft_version-$forge_version")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('jar', Jar) {
+    manifest {
+        attributes['MixinConfigs'] = "${mod_id}.mixins.json"
+    }
+}
+
+// Ortak kaynak kodu (Mixin + mixin ayari) tek yerde: ../../common
+sourceSets.main {
+	java.srcDir '../../common/java'
+	resources.srcDir '../../common/resources'
+}
+
