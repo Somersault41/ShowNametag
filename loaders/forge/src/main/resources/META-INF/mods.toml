@@ -1,0 +1,17 @@
+modLoader="javafml"
+loaderVersion="[0,)"
+license="MIT"
+
+[[mods]]
+modId="shownametag"
+version="1.0.0"
+displayName="Show Nametag"
+authors="Somersault41"
+description='''Ucuncu sahis kamerada (F5) kendi isim etiketini gosterir.'''
+
+[[dependencies.shownametag]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[26.1,27)"
+    ordering="NONE"
+    side="CLIENT"

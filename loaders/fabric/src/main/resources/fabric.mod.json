@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "shownametag",
+  "version": "${version}",
+  "name": "Show Nametag",
+  "description": "Ucuncu sahis kamerada (F5) kendi isim etiketini gosterir.",
+  "authors": ["Somersault41"],
+  "license": "MIT",
+  "environment": "client",
+  "mixins": [
+    { "config": "shownametag.mixins.json", "environment": "client" }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": ">=26.1 <27",
+    "java": ">=25"
+  }
+}
