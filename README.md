@@ -58,4 +58,4 @@ The script builds each loader project against Minecraft 1.21.1 and merges them i
 
 ## License
 
-MIT, by Somersault41
+MIT, by Somersault41. See [LICENSE](LICENSE).
