@@ -1,0 +1,24 @@
+// Fabric 1.20.x is obfuscated: compiled with Mojang names, remapped to intermediary.
+// Has its own sources (com.shownametag.fabric); ../../common is not used.
+plugins {
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+}
+
+// Java 17 bytecode: 1.20 - 1.20.4 run on Java 17
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+}

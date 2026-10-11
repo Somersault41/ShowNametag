@@ -1,0 +1,28 @@
+# Read by NeoForge 20.5 - 20.6. NeoForge 20.2 - 20.4 read META-INF/mods.toml (shared with Forge).
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+description = '''${mod_description}'''
+
+[[mixins]]
+config = "shownametag.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[20.5,21)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.20.5,1.21)"
+ordering = "NONE"
+side = "CLIENT"
